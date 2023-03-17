@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: prova
+      authentication-database: admin
+      username: usuario
+      password: segredo
+      auto-index-creation: true
+
+
+
