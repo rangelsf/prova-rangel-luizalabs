@@ -13,10 +13,15 @@ import com.prova.rangel.luizalabs.prova.domain.entity.factory.WishListFactory;
 import com.prova.rangel.luizalabs.prova.domain.request.AddProductOnWishListRequest;
 import com.prova.rangel.luizalabs.prova.domain.response.CreateWishListResponse;
 import com.prova.rangel.luizalabs.prova.domain.usecase.CreateWishList;
+import com.prova.rangel.luizalabs.prova.domain.usecase.FindIfClientExistsById;
+import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
 import com.prova.rangel.luizalabs.prova.infraestructure.controller.WishListController;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
+import com.prova.rangel.luizalabs.prova.infraestructure.database.repository.ClientRepository;
+import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ClientModel;
+
 
 @Service
 public class CreateWishListImpl implements CreateWishList{
@@ -27,6 +32,10 @@ public class CreateWishListImpl implements CreateWishList{
 	@Autowired
 	private WishListDataServices wishListDataServices;
 	
+	@Autowired
+	private FindIfClientExistsById findIfClientExistsById;
+	
+
 	final static Logger log = LoggerFactory.getLogger(CreateWishListImpl.class);
 	
 	
@@ -35,8 +44,10 @@ public class CreateWishListImpl implements CreateWishList{
 		log.info("Creating new wish list");
 		requestFieldVerification(clientId, name);
 		
-		// TODO ADICIONAR VERIFICACAO DE se cliente existe
-		
+		// TODO ADICIONAR VERIFICACAO DE SE CLIENTE EXISTE
+		if(!findIfClientExistsById.findIfClientExistsById(clientId)) {
+			throw new DataNotFoundException("Client not found");
+		}
 
 		WishList wishList = wishListFactory.createNewWishList(clientId, Arrays.asList(), name);
 		

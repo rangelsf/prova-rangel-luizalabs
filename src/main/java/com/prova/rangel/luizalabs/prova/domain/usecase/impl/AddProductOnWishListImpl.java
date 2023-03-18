@@ -13,6 +13,7 @@ import com.prova.rangel.luizalabs.prova.domain.request.AddProductOnWishListReque
 import com.prova.rangel.luizalabs.prova.domain.response.AddProductOnWishListResponse;
 import com.prova.rangel.luizalabs.prova.domain.response.FindIfProductIsOnWishListResponse;
 import com.prova.rangel.luizalabs.prova.domain.usecase.AddProductOnWishList;
+import com.prova.rangel.luizalabs.prova.domain.usecase.FindIfProductExistsById;
 import com.prova.rangel.luizalabs.prova.domain.usecase.FindIfProductIsOnWishList;
 import com.prova.rangel.luizalabs.prova.exception.BusinessRuleException;
 import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
@@ -20,6 +21,8 @@ import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
 import com.prova.rangel.luizalabs.prova.infraestructure.controller.WishListController;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
+import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ProductModel;
+import com.prova.rangel.luizalabs.prova.infraestructure.database.repository.ProductRepository;
 
 @Service
 public class AddProductOnWishListImpl implements AddProductOnWishList{
@@ -33,8 +36,9 @@ public class AddProductOnWishListImpl implements AddProductOnWishList{
 	@Autowired
 	FindIfProductIsOnWishList findIfProductIsOnWishList;
 	
-	
-	
+	@Autowired
+	FindIfProductExistsById findIfProductExistsById;
+
 	
 	final static Logger log = LoggerFactory.getLogger(AddProductOnWishListImpl.class);
 	
@@ -55,7 +59,10 @@ public class AddProductOnWishListImpl implements AddProductOnWishList{
 		WishListModel wishListModel = optionalWishListModel.get();
 		
 		
-		//TODO add verification if product exists
+		if(!findIfProductExistsById.findIfProductExistsById(addProductOnWishListRequest.getProductId())) {
+			throw new DataNotFoundException("Product not found.");
+		}
+		
 		
 		
 		FindIfProductIsOnWishListResponse findIfProductIsOnWishListResponse =
