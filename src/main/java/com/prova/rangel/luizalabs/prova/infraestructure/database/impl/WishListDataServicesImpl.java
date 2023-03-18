@@ -21,7 +21,7 @@ public class WishListDataServicesImpl implements WishListDataServices{
 	@Override
 	public WishListModel save(String idWishList, WishList wishList) {
 		WishListModel wishListModel = new WishListModel();
-		wishListModel.setId(idWishList);
+		wishListModel.setWishListId(idWishList);
 		wishListModel.setClientId(wishList.getClientId());
 		wishListModel.setName(wishList.getName());
 		wishListModel.setProductIdList(wishList.getProductIdList());
@@ -30,7 +30,7 @@ public class WishListDataServicesImpl implements WishListDataServices{
 
 	@Override
 	public Optional<WishListModel> findWishListByClientIdAndId(String clientId, String wishListId) {
-		return wishListRepository.findByClientIdAndId(clientId, wishListId);
+		return wishListRepository.findByClientIdAndWishListId(clientId, wishListId);
 	}
 
 	@Override

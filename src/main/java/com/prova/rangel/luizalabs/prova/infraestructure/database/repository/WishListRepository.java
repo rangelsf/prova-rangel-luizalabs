@@ -14,5 +14,5 @@ import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListM
 public interface WishListRepository extends MongoRepository<WishListModel, String>{
 
 	List<WishListModel> findByNameLike(String name);
-	Optional<WishListModel> findByClientIdAndId(String clientId, String wishListId);
+	Optional<WishListModel> findByClientIdAndWishListId(String clientId, String wishListId);
 }

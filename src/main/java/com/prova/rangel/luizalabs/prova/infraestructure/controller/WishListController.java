@@ -21,7 +21,7 @@ import com.prova.rangel.luizalabs.prova.domain.response.*;
 import com.prova.rangel.luizalabs.prova.domain.usecase.*;
 
 @RequiredArgsConstructor
-@RestController("/wishlist")
+@RestController
 public class WishListController {
 
 	@Autowired
@@ -30,16 +30,39 @@ public class WishListController {
 	@Autowired
 	private FindWishListById findWishListById;
 	
-	final static Logger logging = LoggerFactory.getLogger(WishListController.class);
+	@Autowired 
+	private AddProductOnWishList addProductOnWishList;
 	
-	@PostMapping
-	public CreateWishListResponse createWishList(@io.swagger.v3.oas.annotations.parameters.RequestBody(description= "a", required = true, content = @Content(mediaType = "application/json", schema = @Schema(implementation = CreateWishListRequest.class)))  @RequestBody CreateWishListRequest request) {
-		logging.info("request: {}  ", request.toString());
+	@Autowired
+	private FindIfProductIsOnWishList findIfProductIsOnWishList;
+	
+	
+	
+	final static Logger log = LoggerFactory.getLogger(WishListController.class);
+	
+	@ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success.",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CreateWishListResponse.class))}),
+            @ApiResponse(responseCode = "400", description = "Client Id and wish list name are mandatory.",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))}),
+            @ApiResponse(responseCode = "404", description = "Wish List or client not found.",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))})
+    })
+	@Operation(summary = "Create a new Wish List.")
+	@PostMapping("/wishlist")
+	public CreateWishListResponse createWishList(
+			@io.swagger.v3.oas.annotations.parameters.RequestBody(description= "a", required = true, 
+					content = @Content(mediaType = "application/json", 
+						schema = @Schema(implementation = CreateWishListRequest.class)))  
+			@RequestBody CreateWishListRequest request) {
+		log.info("Request to create wish list: {}  ", request.toString());
 		return createWishList.create(request.getClientId(), request.getName());
 	}
 	
 	
-	@Operation(summary = "Search a Wish List by id.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success.",
                     content = { @Content(mediaType = "application/json",
@@ -51,10 +74,31 @@ public class WishListController {
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = SimpleResponse.class))})
     })
-	@GetMapping("/find-by-id/{id}")
-	public FindWishListByIdResponse findWishListById(@Parameter(description = "Wish List Id") @PathVariable String id) {
-		return findWishListById.findWishListByIdResponse(id);
+    @Operation(summary = "Search a Wish List by id.")
+	@GetMapping("/wishlist/{wishListId}")
+	public FindWishListByIdResponse findWishListById(@Parameter(description = "Wish List Id") @PathVariable String wishListId) {
+    	log.info("request to find wish list by id");
+    	return findWishListById.findWishListById(wishListId);
 		
 	}
+    
+ 
+    
+    
+    @PostMapping("/wishlist/product")
+    public AddProductOnWishListResponse addProductOnWishList(@RequestBody AddProductOnWishListRequest request) {
+    	log.info("Request to add product: {}  ", request.toString());
+    	return addProductOnWishList.add(request);
+    }
+    
+    
+    @GetMapping("/wishlist/{wishListId}/product/{productId}")
+    public FindIfProductIsOnWishListResponse findIfProductIsOnWishList(@Parameter(description = "Wish list id.") @PathVariable String wishListId,
+    		@Parameter(description = "Product id") @PathVariable String productId
+            ) {
+    	log.info("Request to find product on wish list");
+    	return findIfProductIsOnWishList.findIfProductIsOnWishList(wishListId, productId);
+    }
+    
 
 }
