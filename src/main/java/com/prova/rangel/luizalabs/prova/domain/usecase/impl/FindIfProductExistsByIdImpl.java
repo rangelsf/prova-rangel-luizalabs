@@ -29,5 +29,12 @@ public class FindIfProductExistsByIdImpl implements FindIfProductExistsById{
 			throw new IncompleteRequestException("Product id is a mandatory field");	
 		}
 	}
+
+	public FindIfProductExistsByIdImpl(ProductDataServices productDataServices) {
+		super();
+		this.productDataServices = productDataServices;
+	}
+	
+	
 	
 }

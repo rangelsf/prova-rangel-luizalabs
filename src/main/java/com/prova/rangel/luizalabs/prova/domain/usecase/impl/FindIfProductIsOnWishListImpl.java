@@ -55,6 +55,15 @@ public class FindIfProductIsOnWishListImpl implements FindIfProductIsOnWishList{
 		}
 		
 	}
+
+
+
+	public FindIfProductIsOnWishListImpl(FindWishListById findWishListById) {
+		super();
+		this.findWishListById = findWishListById;
+	}
+	
+	
 	
 
 }

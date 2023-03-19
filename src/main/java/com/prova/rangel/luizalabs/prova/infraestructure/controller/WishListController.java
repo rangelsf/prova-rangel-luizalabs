@@ -88,7 +88,17 @@ public class WishListController {
 	}
     
  
-    
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AddProductOnWishListResponse.class))}),
+            @ApiResponse(responseCode = "400", description = "Wish List id, client id and product id are mandatory",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))}),
+            @ApiResponse(responseCode = "404", description = "Wish List id, client id or product id not found",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))})
+    })
     @Operation(summary = "Add a product to a wish list")
     @PostMapping("/wishlist/product")
     public AddProductOnWishListResponse addProductOnWishList(@RequestBody AddProductOnWishListRequest request) {
@@ -96,9 +106,21 @@ public class WishListController {
     	return addProductOnWishList.add(request);
     }
     
+    
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Success",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = FindIfProductIsOnWishListResponse.class))}),
+            @ApiResponse(responseCode = "400", description = "Product id and wish list id is mandatory",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))}),
+            @ApiResponse(responseCode = "404", description = "The product is not on the wish list",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = SimpleResponse.class))})
+    })  
     @Operation(summary = "Search if a product is on a wish list")
     @GetMapping("/wishlist/{wishListId}/product/{productId}")
-    public FindIfProductIsOnWishListResponse findIfProductIsOnWishList(@Parameter(description = "Wish list id.") @PathVariable String wishListId,
+    public FindIfProductIsOnWishListResponse findIfProductIsOnWishList(@Parameter(description = "Wish list id") @PathVariable String wishListId,
     		@Parameter(description = "Product id") @PathVariable String productId
             ) {
     	log.info("Request to find product on wish list");
@@ -110,7 +132,7 @@ public class WishListController {
             @ApiResponse(responseCode = "200", description = "Success",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = FindAllProductsOnWishListResponse.class))}),
-            @ApiResponse(responseCode = "400", description = "Wish list if is mandatory",
+            @ApiResponse(responseCode = "400", description = "Wish list id is mandatory",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = SimpleResponse.class))}),
             @ApiResponse(responseCode = "404", description = "The wish list is empty",

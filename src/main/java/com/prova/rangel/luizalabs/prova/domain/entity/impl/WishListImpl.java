@@ -43,8 +43,6 @@ public class WishListImpl implements WishList {
 	public String getClientId() {
 		return this.clientId;
 	}
-	
-	
-	
+
 	
 }

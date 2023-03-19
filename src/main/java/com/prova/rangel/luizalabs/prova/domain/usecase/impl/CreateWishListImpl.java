@@ -20,8 +20,10 @@ import com.prova.rangel.luizalabs.prova.infraestructure.controller.WishListContr
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.repository.ClientRepository;
-import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ClientModel;
 
+import lombok.AllArgsConstructor;
+
+import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ClientModel;
 
 @Service
 public class CreateWishListImpl implements CreateWishList{
@@ -39,6 +41,9 @@ public class CreateWishListImpl implements CreateWishList{
 	final static Logger log = LoggerFactory.getLogger(CreateWishListImpl.class);
 	
 	
+
+
+
 	@Override
 	public CreateWishListResponse create(String clientId, String name) {
 		log.info("Creating new wish list");
@@ -71,5 +76,18 @@ public class CreateWishListImpl implements CreateWishList{
 		}
 		
 	}
+
+
+
+	public CreateWishListImpl(WishListFactory wishListFactory, WishListDataServices wishListDataServices,
+			FindIfClientExistsById findIfClientExistsById) {
+		super();
+		this.wishListFactory = wishListFactory;
+		this.wishListDataServices = wishListDataServices;
+		this.findIfClientExistsById = findIfClientExistsById;
+	}
+
+
+
 
 }

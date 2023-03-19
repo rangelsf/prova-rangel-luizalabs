@@ -54,7 +54,14 @@ public class FindAllProductsOnWishListImpl implements FindAllProductsOnWishList{
 		}
 		
 	}
-	
-	
+
+
+	public FindAllProductsOnWishListImpl(ProductDataServices productDataServices, FindWishListById findWishListById) {
+		super();
+		this.productDataServices = productDataServices;
+		this.findWishListById = findWishListById;
+	}
+
+
 	
 }

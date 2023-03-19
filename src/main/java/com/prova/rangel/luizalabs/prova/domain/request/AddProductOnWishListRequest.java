@@ -43,4 +43,17 @@ public class AddProductOnWishListRequest {
 				+ clientId + "]";
 	}
 
+	public AddProductOnWishListRequest(@NotBlank String wishListId, @NotBlank String productId,
+			@NotBlank String clientId) {
+		super();
+		this.wishListId = wishListId;
+		this.productId = productId;
+		this.clientId = clientId;
+	}
+
+	public AddProductOnWishListRequest() {
+	}
+	
+	
+
 }

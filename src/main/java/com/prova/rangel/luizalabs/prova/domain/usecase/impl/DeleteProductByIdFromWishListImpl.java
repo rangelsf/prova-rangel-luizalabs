@@ -66,4 +66,16 @@ public class DeleteProductByIdFromWishListImpl implements DeleteProductByIdFromW
 		
 	}
 
+
+
+	public DeleteProductByIdFromWishListImpl(WishListDataServices wishListDataservices,
+			FindWishListById findWishListById, WishListFactory wishListFactory) {
+		super();
+		this.wishListDataservices = wishListDataservices;
+		this.findWishListById = findWishListById;
+		this.wishListFactory = wishListFactory;
+	}
+	
+	
+
 }

@@ -16,6 +16,9 @@ public class FindWishListByIdResponse {
 		this.productIdList = productIdList;
 	}
 
+	public FindWishListByIdResponse() {
+	}
+
 	public String getName() {
 		return name;
 	}

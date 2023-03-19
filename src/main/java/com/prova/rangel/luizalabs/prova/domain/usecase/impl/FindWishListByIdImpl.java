@@ -31,7 +31,7 @@ public class FindWishListByIdImpl implements FindWishListById{
 		Optional<WishListModel> wishListModel = wishListDataServices.findWishListById(wishListId);
 		
 		if(!wishListModel.isPresent()) {
-			throw new DataNotFoundException("Wish list not found.");
+			throw new DataNotFoundException("Wish list not found");
 		}
 		
 		return new FindWishListByIdResponse(wishListModel.get().getName(), 
@@ -49,5 +49,13 @@ public class FindWishListByIdImpl implements FindWishListById{
 		}
 		
 	}
+
+
+	public FindWishListByIdImpl(WishListDataServices wishListDataServices) {
+		super();
+		this.wishListDataServices = wishListDataServices;
+	}
+	
+	
 
 }

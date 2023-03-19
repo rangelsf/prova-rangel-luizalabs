@@ -31,5 +31,15 @@ public class ProductModel {
 	public String toString() {
 		return "ProductModel [productId=" + productId + ", name=" + name + "]";
 	}
+
+	public ProductModel(String productId, String name) {
+		super();
+		this.productId = productId;
+		this.name = name;
+	}
+
+	public ProductModel() {
+	}
+
 	
 }

@@ -54,13 +54,13 @@ public class AddProductOnWishListImpl implements AddProductOnWishList{
 		
 		if(!optionalWishListModel.isPresent()) {
 			log.info("Wish List not found");
-			throw new DataNotFoundException("Wish list not found.");
+			throw new DataNotFoundException("Wish list not found");
 		}
 		WishListModel wishListModel = optionalWishListModel.get();
 		
 		
 		if(!findIfProductExistsById.findIfProductExistsById(addProductOnWishListRequest.getProductId())) {
-			throw new DataNotFoundException("Product not found.");
+			throw new DataNotFoundException("Product not found");
 		}
 		
 		
@@ -120,6 +120,16 @@ public class AddProductOnWishListImpl implements AddProductOnWishList{
 		
 	}
 
+
+	public AddProductOnWishListImpl(WishListDataServices wishListDataServices, WishListFactory wishListFactory,
+			FindIfProductIsOnWishList findIfProductIsOnWishList, FindIfProductExistsById findIfProductExistsById) {
+		super();
+		this.wishListDataServices = wishListDataServices;
+		this.wishListFactory = wishListFactory;
+		this.findIfProductIsOnWishList = findIfProductIsOnWishList;
+		this.findIfProductExistsById = findIfProductExistsById;
+	}
+	
 	
 	
 }
