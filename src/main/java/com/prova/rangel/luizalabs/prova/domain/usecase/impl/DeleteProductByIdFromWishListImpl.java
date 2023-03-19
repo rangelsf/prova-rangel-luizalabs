@@ -61,7 +61,6 @@ public class DeleteProductByIdFromWishListImpl implements DeleteProductByIdFromW
 			log.info("productId empty");
 			throw new IncompleteRequestException("Product id is a mandatory field");	
 		}
-		
 	}
 
 

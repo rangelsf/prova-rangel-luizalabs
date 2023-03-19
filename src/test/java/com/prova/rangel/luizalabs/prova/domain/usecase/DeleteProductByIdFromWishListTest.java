@@ -88,7 +88,7 @@ class DeleteProductByIdFromWishListTest {
 	@Test
 	void shouldThrowWhenProductIsNull(){
 		org.assertj.core.api.Assertions.assertThatThrownBy(
-				() -> deleteProductByIdFromWishList.deleteProductByIdFromWishList("1", null))
+				() -> deleteProductByIdFromWishList.deleteProductByIdFromWishList(null, "1"))
 		.isInstanceOf(IncompleteRequestException.class)
 		.hasMessage("Product id is a mandatory field");
 	}
@@ -97,7 +97,7 @@ class DeleteProductByIdFromWishListTest {
 	@Test
 	void shouldThrowWhenWishListIsNull(){
 		org.assertj.core.api.Assertions.assertThatThrownBy(
-				() -> deleteProductByIdFromWishList.deleteProductByIdFromWishList(null, "1"))
+				() -> deleteProductByIdFromWishList.deleteProductByIdFromWishList("1", null))
 		.isInstanceOf(IncompleteRequestException.class)
 		.hasMessage("WishList id is a mandatory field");
 	}

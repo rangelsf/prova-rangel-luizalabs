@@ -31,7 +31,7 @@ public class CreateWishListImpl implements CreateWishList{
 	private FindIfClientExistsById findIfClientExistsById;
 	
 
-	final static Logger log = LoggerFactory.getLogger(CreateWishListImpl.class);
+	static final Logger log = LoggerFactory.getLogger(CreateWishListImpl.class);
 	
 	
 

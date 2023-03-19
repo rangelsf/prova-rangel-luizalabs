@@ -29,7 +29,7 @@ import com.prova.rangel.luizalabs.prova.exception.BusinessRuleException;
 import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
-public class AddProductOnWishListTest {
+class AddProductOnWishListTest {
 
 	private WishListFactory wishListFactory = new WishListFactoryImpl();
 
