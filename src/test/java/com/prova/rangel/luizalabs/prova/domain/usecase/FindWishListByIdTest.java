@@ -27,7 +27,7 @@ import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataSer
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
 
 @ExtendWith(MockitoExtension.class)
-public class FindWishListByIdTest {
+class FindWishListByIdTest {
 
 	FindWishListById findWishListById;
 
@@ -40,7 +40,7 @@ public class FindWishListByIdTest {
 		findWishListById = new FindWishListByIdImpl(wishListDataServices);
 	}
 
-	@DisplayName("Should wish list is not blank, null and exists, should return te wish list.")
+	@DisplayName("Should wish list is not blank, null and exists, should return te wish list")
 	@Test
 	void shouldFind(){
 		WishListModel wishListModel = new WishListModel();

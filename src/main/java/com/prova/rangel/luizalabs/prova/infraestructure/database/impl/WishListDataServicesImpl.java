@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.prova.rangel.luizalabs.prova.domain.entity.WishList;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;

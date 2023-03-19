@@ -1,6 +1,5 @@
 package com.prova.rangel.luizalabs.prova.domain.response;
 
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +15,6 @@ public class SimpleResponse {
 			this.httpStatus = httpStatus;
 		}
 	}
-	
-	
 	
 	public List<String> getBody() {
 		return body;

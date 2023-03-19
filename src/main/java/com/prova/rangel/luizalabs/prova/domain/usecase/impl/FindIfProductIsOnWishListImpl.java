@@ -17,7 +17,7 @@ public class FindIfProductIsOnWishListImpl implements FindIfProductIsOnWishList{
 	@Autowired
 	private FindWishListById findWishListById;
 	
-	final static Logger log = LoggerFactory.getLogger(FindIfProductIsOnWishListImpl.class);
+	static final Logger log = LoggerFactory.getLogger(FindIfProductIsOnWishListImpl.class);
 	
 	@Override
 	public FindIfProductIsOnWishListResponse findIfProductIsOnWishList(String wishListId, String productId) {

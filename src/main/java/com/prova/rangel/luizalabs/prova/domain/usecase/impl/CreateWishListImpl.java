@@ -1,7 +1,6 @@
 package com.prova.rangel.luizalabs.prova.domain.usecase.impl;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,20 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.prova.rangel.luizalabs.prova.domain.entity.WishList;
 import com.prova.rangel.luizalabs.prova.domain.entity.factory.WishListFactory;
-import com.prova.rangel.luizalabs.prova.domain.request.AddProductOnWishListRequest;
 import com.prova.rangel.luizalabs.prova.domain.response.CreateWishListResponse;
 import com.prova.rangel.luizalabs.prova.domain.usecase.CreateWishList;
 import com.prova.rangel.luizalabs.prova.domain.usecase.FindIfClientExistsById;
 import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
-import com.prova.rangel.luizalabs.prova.infraestructure.controller.WishListController;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
-import com.prova.rangel.luizalabs.prova.infraestructure.database.repository.ClientRepository;
 
-import lombok.AllArgsConstructor;
-
-import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ClientModel;
 
 @Service
 public class CreateWishListImpl implements CreateWishList{
@@ -49,7 +42,6 @@ public class CreateWishListImpl implements CreateWishList{
 		log.info("Creating new wish list");
 		requestFieldVerification(clientId, name);
 		
-		// TODO ADICIONAR VERIFICACAO DE SE CLIENTE EXISTE
 		if(!findIfClientExistsById.findIfClientExistsById(clientId)) {
 			throw new DataNotFoundException("Client not found");
 		}

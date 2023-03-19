@@ -18,11 +18,9 @@ import com.prova.rangel.luizalabs.prova.domain.usecase.FindIfProductIsOnWishList
 import com.prova.rangel.luizalabs.prova.exception.BusinessRuleException;
 import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
-import com.prova.rangel.luizalabs.prova.infraestructure.controller.WishListController;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.WishListDataServices;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListModel;
-import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ProductModel;
-import com.prova.rangel.luizalabs.prova.infraestructure.database.repository.ProductRepository;
+
 
 @Service
 public class AddProductOnWishListImpl implements AddProductOnWishList{
@@ -40,7 +38,7 @@ public class AddProductOnWishListImpl implements AddProductOnWishList{
 	FindIfProductExistsById findIfProductExistsById;
 
 	
-	final static Logger log = LoggerFactory.getLogger(AddProductOnWishListImpl.class);
+	static final Logger log = LoggerFactory.getLogger(AddProductOnWishListImpl.class);
 	
 	@Override
 	public AddProductOnWishListResponse add(AddProductOnWishListRequest addProductOnWishListRequest) {

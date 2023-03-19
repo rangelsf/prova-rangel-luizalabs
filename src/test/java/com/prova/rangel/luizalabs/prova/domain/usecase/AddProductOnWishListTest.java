@@ -50,41 +50,6 @@ public class AddProductOnWishListTest {
 		addProductOnWishList = new AddProductOnWishListImpl(wishListDataServices, wishListFactory, findIfProductIsOnWishList,findIfProductExistsById);
 	}
 
-
-
-	//    @DisplayName("If wish list, product and client exist and wishlist not full, should add the product to whish list")
-	//    @Test
-	//    void shouldAddProductToWishList(){
-	//    	AddProductOnWishListRequest addProductOnWishListRequest = new AddProductOnWishListRequest();
-	//    	addProductOnWishListRequest.setClientId("c1");
-	//    	addProductOnWishListRequest.setProductId("p2");
-	//    	addProductOnWishListRequest.setWishListId("w1");
-	//        List<String> productIdList = new ArrayList<>();
-	//        productIdList.add("p4");
-	//        productIdList.add("p5");
-	//        WishListModel wishListModel = new WishListModel();
-	//        wishListModel.setClientId(addProductOnWishListRequest.getClientId());
-	//        wishListModel.setName("list");
-	//        wishListModel.setProductIdList(productIdList);
-	//        wishListModel.setWishListId(addProductOnWishListRequest.getWishListId());
-	//        
-	//       
-	//        Mockito.when(wishListDataServices.findWishListByClientIdAndId(addProductOnWishListRequest.getClientId(),
-	//        		addProductOnWishListRequest.getWishListId())).thenReturn(Optional.of(wishListModel));
-	//        
-	//
-	//        Mockito.when(findIfProductExistsById.findIfProductExistsById("p2")).thenReturn(true);
-	//        
-	//
-	//        AddProductOnWishListResponse addProductOnWishListResponse = addProductOnWishList.add(addProductOnWishListRequest);
-	//
-	//        Mockito.verify(wishListDataServices).save(ArgumentMatchers.any(), ArgumentMatchers.any());
-	//        Assertions.assertNotNull(addProductOnWishListResponse);
-	//        Assertions.assertNotNull(addProductOnWishListResponse.getProductIdList());
-	//        Assertions.assertEquals(3, addProductOnWishListResponse.getProductIdList().size());
-	//    }
-
-
 	@DisplayName("If wish list does not exist, should throw exception")
 	@Test
 	void shouldNotAddProductOnWishListWhenWishListDoesNotExist(){

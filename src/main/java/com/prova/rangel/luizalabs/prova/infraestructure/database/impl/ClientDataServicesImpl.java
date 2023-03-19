@@ -18,7 +18,7 @@ public class ClientDataServicesImpl implements ClientDataServices{
 	@Autowired
 	private ClientRepository clientRepository;
 	
-	final static Logger log = LoggerFactory.getLogger(ClientDataServicesImpl.class);
+	static final Logger log = LoggerFactory.getLogger(ClientDataServicesImpl.class);
 	
 	@Override
 	public Optional<ClientModel> findByClientId(String clientId) {

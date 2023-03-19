@@ -45,6 +45,7 @@ public abstract class AbstractContainerBaseTest {
                 )
         );
     }
+    
     public static void dropWishlist(MongoTemplate mongoTemplate){
         MongoCollection<Document> collection = mongoTemplate.getCollection("wishlist");
         collection.drop();
@@ -77,6 +78,7 @@ public abstract class AbstractContainerBaseTest {
                 Document.parse("{_id:\"p22\" ,\"name\": \"Product 22\" }")
         ));
     }
+    
     public static void dropProduct(MongoTemplate mongoTemplate){
         MongoCollection<Document> collection = mongoTemplate.getCollection("product");
         collection.drop();
@@ -91,10 +93,9 @@ public abstract class AbstractContainerBaseTest {
                 Document.parse("{_id:\"c4\", \"name\": \"Client 4\" }")
         ));
     }
+    
     public static void dropClient(MongoTemplate mongoTemplate){
         MongoCollection<Document> clienteCollection = mongoTemplate.getCollection("client");
         clienteCollection.drop();
     }
-
-	
 }

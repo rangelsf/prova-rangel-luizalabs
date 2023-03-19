@@ -12,7 +12,7 @@ public class WishListImpl implements WishList {
 	private String wishListName;
 	
 	
-	private final static int PRODUCT_LIST_MAX_SIZE = 20;
+	private static final int PRODUCT_LIST_MAX_SIZE = 20;
 	
 	
 	public WishListImpl(List<String> productIdList, String clientId, String wishListName) {

@@ -15,7 +15,7 @@ public class FindIfClientExistsByIdImpl implements FindIfClientExistsById{
 	@Autowired
 	private ClientDataServices clientDataServices;
 	
-	final static Logger log = LoggerFactory.getLogger(FindIfClientExistsByIdImpl.class);
+	static final Logger log = LoggerFactory.getLogger(FindIfClientExistsByIdImpl.class);
 	
 	
 	@Override

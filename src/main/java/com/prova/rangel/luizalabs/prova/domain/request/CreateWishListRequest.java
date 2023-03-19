@@ -2,8 +2,6 @@ package com.prova.rangel.luizalabs.prova.domain.request;
 
 import javax.validation.constraints.NotBlank;
 
-import lombok.ToString;
-
 public class CreateWishListRequest {
 
 	@NotBlank

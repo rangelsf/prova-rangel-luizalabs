@@ -31,7 +31,7 @@ print('Wish Lists Inserted');
 
 db.createCollection('client');
 
-db.cliente.insertMany([
+db.client.insertMany([
     {_id:"c1", "name": "Client A" },
     {_id:"c2", "name": "Client B" },
     {_id:"c3", "name": "Client C" },
@@ -42,7 +42,7 @@ print('Clients Inserted');
 
 db.createCollection('product');
 
-db.produto.insertMany([
+db.product.insertMany([
     {_id:"p1"  , "name": "Product 1" },
     {_id:"p2"  , "name": "Product 2" },
     {_id:"p3"  , "name": "Product 3" },

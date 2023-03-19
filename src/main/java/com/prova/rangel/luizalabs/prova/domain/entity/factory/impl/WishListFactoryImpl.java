@@ -13,8 +13,6 @@ public class WishListFactoryImpl implements WishListFactory {
 
 	@Override
 	public WishList createNewWishList(String clientId, List<String> productIdList, String name) {
-		// TODO return the new impl object when class created
-		
 		return new WishListImpl(productIdList, clientId, name);
 	}
 

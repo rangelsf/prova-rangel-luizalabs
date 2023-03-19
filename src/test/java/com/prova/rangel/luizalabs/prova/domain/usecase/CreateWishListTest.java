@@ -23,7 +23,7 @@ import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
 
 @ExtendWith(MockitoExtension.class)
-public class CreateWishListTest {
+class CreateWishListTest {
 
 	CreateWishList createWishList;
 	
@@ -40,8 +40,8 @@ public class CreateWishListTest {
 		createWishList = new CreateWishListImpl(wishListFactory, wishListDataServices, findIfClientExistsById);
 	}
 	
+	@DisplayName("When the client id does not exist, an exception must be thrown")
 	@Test
-    @DisplayName("When the client id does not exist, an exception must be thrown")
     void shouldNotCreateWishListWhenClientIdDoesNotExist(){
         Mockito.when(findIfClientExistsById.findIfClientExistsById("99999")).thenReturn(false);
         org.assertj.core.api.Assertions.assertThatThrownBy(
@@ -51,8 +51,8 @@ public class CreateWishListTest {
     }
 	
 	
+	@DisplayName("Name and client id should not be null or empty, and the client exists. Should create a new wish list")
 	@Test
-    @DisplayName("Name and client id should not be null or empty, and the client exists. Should create a new wish list.")
     void shouldCreateNewWishList(){
         WishListModel wishListModel = new WishListModel();
         wishListModel.setClientId("c1");
@@ -69,8 +69,8 @@ public class CreateWishListTest {
         Assertions.assertNotNull(addProductOnWishListResponse);
     }
 	
+	@DisplayName("When the client id is blank, an exception must be thrown")
 	@Test
-    @DisplayName("When the client id is blank, an exception must be thrown")
     void shouldNotCreateWishListWhenClientIdIsBlank(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> createWishList.create(" ", "list"))
@@ -78,8 +78,8 @@ public class CreateWishListTest {
                 .hasMessage("Client id is a mandatory field");
     }
 
+	@DisplayName("When the name is null, an exception must be thrown")
 	@Test
-    @DisplayName("When the name is null, an exception must be thrown")
     void shouldNotCreateWishListWhenNameIsNull(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> createWishList.create("c1",null))
@@ -87,8 +87,8 @@ public class CreateWishListTest {
                 .hasMessage("name is a mandatory field");
     }
 	
+	@DisplayName("When the name is blank, an exception must be thrown")
 	@Test
-    @DisplayName("When the name is blank, an exception must be thrown")
     void shouldNotCreateWishListWhenNameIsBlank(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> createWishList.create("c1","  "))
@@ -96,8 +96,8 @@ public class CreateWishListTest {
                 .hasMessage("name is a mandatory field");
     }
 	
+	@DisplayName("When the client id is null, an exception must be thrown")
 	@Test
-    @DisplayName("When the client id is null, an exception must be thrown")
     void shouldNotCreateWishListWhenClientIdIsNull(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> createWishList.create(null, "list"))

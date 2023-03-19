@@ -15,7 +15,7 @@ public class FindIfProductExistsByIdImpl implements FindIfProductExistsById{
 	@Autowired
 	private ProductDataServices productDataServices;
 	
-	final static Logger log = LoggerFactory.getLogger(FindIfProductExistsByIdImpl.class);
+	static final Logger log = LoggerFactory.getLogger(FindIfProductExistsByIdImpl.class);
 	
 	@Override
 	public boolean findIfProductExistsById(String productId) {

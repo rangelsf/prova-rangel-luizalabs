@@ -3,9 +3,6 @@ package com.prova.rangel.luizalabs.prova.domain.response;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Data;
-import lombok.Getter;
-
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ProductModel;
 
 

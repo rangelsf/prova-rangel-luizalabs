@@ -1,7 +1,5 @@
 package com.prova.rangel.luizalabs.prova.domain.usecase.impl;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import com.prova.rangel.luizalabs.prova.domain.usecase.FindWishListById;
 import com.prova.rangel.luizalabs.prova.exception.DataNotFoundException;
 import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
 import com.prova.rangel.luizalabs.prova.infraestructure.database.ProductDataServices;
-import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ProductModel;
 
 @Service
 public class FindAllProductsOnWishListImpl implements FindAllProductsOnWishList{
@@ -26,7 +23,7 @@ public class FindAllProductsOnWishListImpl implements FindAllProductsOnWishList{
 	private FindWishListById findWishListById;
 	
 	
-	final static Logger log = LoggerFactory.getLogger(FindAllProductsOnWishListImpl.class);
+	static final Logger log = LoggerFactory.getLogger(FindAllProductsOnWishListImpl.class);
 	
 
 	@Override

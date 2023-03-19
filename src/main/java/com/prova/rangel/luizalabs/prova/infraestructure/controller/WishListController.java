@@ -43,7 +43,7 @@ public class WishListController {
 	@Autowired
 	private DeleteProductByIdFromWishList deleteProductByIdFromWishList;
 	
-	final static Logger log = LoggerFactory.getLogger(WishListController.class);
+	static final Logger log = LoggerFactory.getLogger(WishListController.class);
 	
 	@ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success",
@@ -63,7 +63,7 @@ public class WishListController {
 					content = @Content(mediaType = "application/json", 
 						schema = @Schema(implementation = CreateWishListRequest.class)))  
 			@RequestBody CreateWishListRequest request) {
-		log.info("Request to create wish list: {}  ", request.toString());
+		log.info("Request to create wish list");
 		return createWishList.create(request.getClientId(), request.getName());
 	}
 	
@@ -102,7 +102,7 @@ public class WishListController {
     @Operation(summary = "Add a product to a wish list")
     @PostMapping("/wishlist/product")
     public AddProductOnWishListResponse addProductOnWishList(@RequestBody AddProductOnWishListRequest request) {
-    	log.info("Request to add product: {}  ", request.toString());
+    	log.info("Request to add product");
     	return addProductOnWishList.add(request);
     }
     
@@ -160,6 +160,7 @@ public class WishListController {
     @DeleteMapping("/wishlist/{wishListId}/product/{productId}")
     public void deleteProductByIdFromWishList(@Parameter(description = "Wish list id") @PathVariable String wishListId,
     @Parameter(description = "Product id") @PathVariable String productId){
+    	log.info("Request delete a product from a wish list");
     	deleteProductByIdFromWishList.deleteProductByIdFromWishList(productId, wishListId);
 	}
     

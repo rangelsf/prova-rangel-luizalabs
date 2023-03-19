@@ -22,7 +22,7 @@ import java.util.List;
 
 
 @ExtendWith(MockitoExtension.class)
-public class DeleteProductByIdFromWishListTest {
+class DeleteProductByIdFromWishListTest {
 
 	DeleteProductByIdFromWishList deleteProductByIdFromWishList;
 
@@ -43,7 +43,7 @@ public class DeleteProductByIdFromWishListTest {
 	}
 
 
-	@DisplayName("If wish list and the product is not null and exists, should delete the product from the wish list.")
+	@DisplayName("If wish list and the product is not null and exists, should delete the product from the wish list")
 	@Test
 	void shouldRemoveProductsFromWishList(){
 		List<String> products = new ArrayList<>();
@@ -93,8 +93,8 @@ public class DeleteProductByIdFromWishListTest {
 		.hasMessage("Product id is a mandatory field");
 	}
 
-	@Test
 	@DisplayName("If the wish list is null, should throw exception")
+	@Test
 	void shouldThrowWhenWishListIsNull(){
 		org.assertj.core.api.Assertions.assertThatThrownBy(
 				() -> deleteProductByIdFromWishList.deleteProductByIdFromWishList(null, "1"))

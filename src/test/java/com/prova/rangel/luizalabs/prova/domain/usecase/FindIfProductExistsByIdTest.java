@@ -17,7 +17,7 @@ import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ProductMo
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
-public class FindIfProductExistsByIdTest {
+class FindIfProductExistsByIdTest {
 
 	FindIfProductExistsById findIfProductExistsById;
 

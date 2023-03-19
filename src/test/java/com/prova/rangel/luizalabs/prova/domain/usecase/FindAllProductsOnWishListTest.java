@@ -26,7 +26,7 @@ import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 
 @ExtendWith(MockitoExtension.class)
-public class FindAllProductsOnWishListTest {
+class FindAllProductsOnWishListTest {
 
 	FindAllProductsOnWishList findAllProductsOnWishList;
 
@@ -44,8 +44,8 @@ public class FindAllProductsOnWishListTest {
 	}
 
 
+	@DisplayName("If there is no products on the wish list, should throw exception")
 	@Test
-    @DisplayName("If there is no products on the wish list, should throw exception")
     void shouldThrowExceptionIfNoProducts(){
 		
 		FindWishListByIdResponse findWishListByIdResponse = new FindWishListByIdResponse();
@@ -63,8 +63,8 @@ public class FindAllProductsOnWishListTest {
 
     }
 	
+	@DisplayName("If id is null, should throw exception")
 	@Test
-    @DisplayName("If id is null, should throw exception")
     void shouldThrowExceptionWhenIdNull(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> findAllProductsOnWishList.findAllProductsOnWishList(null))
@@ -72,8 +72,8 @@ public class FindAllProductsOnWishListTest {
                 .hasMessage("WishList id is a mandatory field");
     }
 
+	@DisplayName("If id is blank, should throw exception")
 	@Test
-    @DisplayName("If id is blank, should throw exception")
     void shouldThrowExceptionWhenIdBlank(){
         org.assertj.core.api.Assertions.assertThatThrownBy(
                 () -> findAllProductsOnWishList.findAllProductsOnWishList(""))

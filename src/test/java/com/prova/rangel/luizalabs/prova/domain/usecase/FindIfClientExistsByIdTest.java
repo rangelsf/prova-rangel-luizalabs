@@ -24,7 +24,7 @@ import com.prova.rangel.luizalabs.prova.infraestructure.database.ClientDataServi
 import com.prova.rangel.luizalabs.prova.infraestructure.database.model.ClientModel;
 
 @ExtendWith(MockitoExtension.class)
-public class FindIfClientExistsByIdTest {
+class FindIfClientExistsByIdTest {
 
 	FindIfClientExistsById findIfClientExistsById;
 
@@ -37,7 +37,7 @@ public class FindIfClientExistsByIdTest {
 	}
 
 
-	@DisplayName("If the client Id is not null or empty and the client id exists, should return true.")
+	@DisplayName("If the client Id is not null or empty and the client id exists, should return true")
 	@Test
 	void shouldReturnTrueWhenClientIdNotNullAndExists(){
 		ClientModel clientModel = new ClientModel();

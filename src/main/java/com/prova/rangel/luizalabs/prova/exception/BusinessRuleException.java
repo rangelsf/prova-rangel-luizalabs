@@ -23,6 +23,7 @@ public class BusinessRuleException extends RuntimeException{
     public BusinessRuleException(String message){
         this(null, Arrays.asList(message));
     }
+    
     private BusinessRuleException(Throwable cause, List<String> messageList) {
         super(String.join("\n", messageList), cause);
         this.messageList = messageList;

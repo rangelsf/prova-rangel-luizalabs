@@ -1,7 +1,5 @@
 package com.prova.rangel.luizalabs.prova.domain.usecase.impl;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +27,11 @@ public class DeleteProductByIdFromWishListImpl implements DeleteProductByIdFromW
 	private WishListFactory wishListFactory;
 	
 	
-	final static Logger log = LoggerFactory.getLogger(DeleteProductByIdFromWishListImpl.class);
+	static final Logger log = LoggerFactory.getLogger(DeleteProductByIdFromWishListImpl.class);
 	
 	@Override
 	public void deleteProductByIdFromWishList(String productId, String wishListId) {
-		requestFieldVerification(productId, wishListId);
+		requestFieldVerification(wishListId, productId);
 		
 		FindWishListByIdResponse findWishListByIdResponse = findWishListById.findWishListById(wishListId);
 		

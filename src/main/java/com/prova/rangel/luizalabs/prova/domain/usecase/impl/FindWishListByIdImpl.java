@@ -1,6 +1,5 @@
 package com.prova.rangel.luizalabs.prova.domain.usecase.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -22,7 +21,7 @@ public class FindWishListByIdImpl implements FindWishListById{
 	private WishListDataServices wishListDataServices;
 	
 	
-	final static Logger log = LoggerFactory.getLogger(FindWishListByIdImpl.class);
+	static final Logger log = LoggerFactory.getLogger(FindWishListByIdImpl.class);
 	
 	@Override
 	public FindWishListByIdResponse findWishListById(String wishListId) {

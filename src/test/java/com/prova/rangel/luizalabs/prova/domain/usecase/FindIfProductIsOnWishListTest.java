@@ -17,7 +17,7 @@ import com.prova.rangel.luizalabs.prova.exception.IncompleteRequestException;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class FindIfProductIsOnWishListTest {
+class FindIfProductIsOnWishListTest {
 
 	FindIfProductIsOnWishList findIfProductIsOnWishList;
 

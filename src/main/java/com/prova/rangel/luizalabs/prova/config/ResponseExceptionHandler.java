@@ -1,6 +1,5 @@
 package com.prova.rangel.luizalabs.prova.config;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
@@ -20,7 +19,7 @@ import com.prova.rangel.luizalabs.prova.exception.*;
 @RestControllerAdvice
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler{
 
-	final static Logger log = LoggerFactory.getLogger(ResponseExceptionHandler.class);
+	static final Logger log = LoggerFactory.getLogger(ResponseExceptionHandler.class);
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<SimpleResponse> defaultHandler(Exception ex, WebRequest request) {
@@ -47,7 +46,7 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler{
 
 		ResponseEntity<SimpleResponse> defaultResponseResponseEntity = createSimpleResponse(exception, responseStatus, HttpStatus.NOT_FOUND);
 
-		if (defaultResponseResponseEntity != null) {
+		if (defaultResponseResponseEntity.getBody() != null) {
 			defaultResponseResponseEntity.getBody().setBody(exception.getMessage());
 		}
 		return defaultResponseResponseEntity;

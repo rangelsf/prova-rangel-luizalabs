@@ -22,7 +22,7 @@ import com.prova.rangel.luizalabs.prova.infraestructure.database.model.WishListM
 @Testcontainers
 @SpringBootTest
 @Category(Integration.class)
-public class WishListDataServicesIntegrationTest extends AbstractContainerBaseTest {
+class WishListDataServicesIntegrationTest extends AbstractContainerBaseTest {
 
 	@Autowired
 	private WishListDataServices wishListDataServices;

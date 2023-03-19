@@ -10,7 +10,7 @@ import com.prova.rangel.luizalabs.prova.domain.entity.factory.WishListFactory;
 import com.prova.rangel.luizalabs.prova.domain.entity.factory.impl.WishListFactoryImpl;
 import com.prova.rangel.luizalabs.prova.domain.entity.WishList;
 
-public class WishListFactoryTest {
+class WishListFactoryTest {
 
 	WishListFactory wishlistFactory = new WishListFactoryImpl();
 

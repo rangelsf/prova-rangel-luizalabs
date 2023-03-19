@@ -27,7 +27,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 @SpringBootTest
 @Category(Integration.class)
-public class WishListControllerTest extends AbstractContainerBaseTest{
+class WishListControllerTest extends AbstractContainerBaseTest{
 
 	@Autowired
 	private WishListController wishListController;
@@ -65,8 +65,8 @@ public class WishListControllerTest extends AbstractContainerBaseTest{
 
 	}
 
-	@Test
 	@DisplayName("If the wish list is full, should throw")
+	@Test
 	void shouldThrowWhenWishListFull() {
 
 		AddProductOnWishListRequest addProductOnWishListRequest = new AddProductOnWishListRequest();
@@ -81,8 +81,8 @@ public class WishListControllerTest extends AbstractContainerBaseTest{
 
 	}
 
-	@Test
 	@DisplayName("When the wish list is not full, should add product")
+	@Test
 	void shouldAddProductOnWishListWhenNotFull() {
 		AddProductOnWishListRequest addProductOnWishListRequest = new AddProductOnWishListRequest();
 		addProductOnWishListRequest.setClientId("c1");
@@ -129,7 +129,7 @@ public class WishListControllerTest extends AbstractContainerBaseTest{
 
 	}
 
-	@DisplayName("Dado que a wishlist existe mas tem produtos, retornar a lista de produtos.")
+	@DisplayName("When the wish list exists and has products, should return products")
 	@Test
 	void shouldCreateWishList() {
 
@@ -157,7 +157,7 @@ public class WishListControllerTest extends AbstractContainerBaseTest{
 
 	}
 
-	@DisplayName("If the wish list exists, should return wish list.")
+	@DisplayName("If the wish list exists, should return wish list")
 	@Test
 	void shouldFindWishListById() {
 		FindWishListByIdResponse response = wishListController.findWishListById("w2");

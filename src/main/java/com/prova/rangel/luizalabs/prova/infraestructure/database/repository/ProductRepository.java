@@ -1,7 +1,6 @@
 package com.prova.rangel.luizalabs.prova.infraestructure.database.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
